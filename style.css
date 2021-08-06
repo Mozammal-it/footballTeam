@@ -45,6 +45,22 @@ header{
     color: #fff;
     cursor: pointer;
 }
+.header-right{
+    position: relative;
+}
+.header-right::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #2D25A0;
+    width: 80px;
+    height: 180px;
+    content: "";
+    transition: .2s;
+}
+header:hover .header-right::before{
+    display: none;
+}
 .header-right img{
     width: 560px
 }
@@ -67,16 +83,30 @@ header{
     display: block;
     position: relative;
     z-index: -1;
+    transition: 1s;
 }
-.blog img::before{
+.blog .blog-img {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.blog-img::before{
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    content: "Mozammal";
-    background-color: aqua;
-    z-index: 10;
+    content: "";
+    background-color: rgba(0, 255, 255, 0.383);
+    display: none;
+    transition: 1s;
+}
+.blog:hover img, .club:hover img {
+    transform: scale(1.3);
+}
+.blog:hover .blog-img::before {
+    display: block;
 }
 .blog h2{
     font-size: 28px;
@@ -143,9 +173,6 @@ header{
     width: 100%;
     display: block;
     transition: .3s;
-}
-.club:hover img {
-    transform: scale(1.3);
 }
 .club h2 {
     font-size: 24px;
